@@ -22,13 +22,13 @@ Sub RunButton_Click()
     Dim row As Long
     For row = cnLo.startRow To cnLo.endRow
         Cells(row, cnLo.wireColumn).Select
-        MSleep (20)
+        MilliSleep (20)
         Cells(row, cnLo.addressColumn).Select
-        MSleep (20)
+        MilliSleep (20)
         Cells(row, cnLo.timeoutColumn).Select
-        MSleep (20)
+        MilliSleep (20)
         Cells(row, cnLo.statusColumn).Select
-        MSleep (20)
+        MilliSleep (20)
     Next row
     
     Set sheet = ThisWorkbook.Worksheets(cmdLo.sheetName)
@@ -36,13 +36,13 @@ Sub RunButton_Click()
     
     For row = cmdLo.startRow To cmdLo.endRow
         Cells(row, cmdLo.deviceColumn).Select
-        MSleep (20)
+        MilliSleep (20)
         Cells(row, cmdLo.commandColumn).Select
-        MSleep (20)
+        MilliSleep (20)
         Cells(row, cmdLo.responseColumn).Select
-        MSleep (20)
+        MilliSleep (20)
         Cells(row, cmdLo.statusColumn).Select
-        MSleep (20)
+        MilliSleep (20)
     Next row
     
     bkupSht.Activate

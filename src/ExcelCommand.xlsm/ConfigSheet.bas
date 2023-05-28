@@ -3,6 +3,25 @@ Option Explicit
 
 Const cfgSheet As String = "config"
 
+Type ExecOption
+    timeout        As Long
+    interval       As Long
+    repeat         As Long
+    displayTime    As Boolean
+    displayBin     As Boolean
+    saveBin        As Boolean
+End Type
+
+Type ConnectLayout
+    sheetName      As String
+    startRow       As Long
+    endRow         As Long
+    wireColumn     As Long
+    addressColumn  As Long
+    timeoutColumn  As Long
+    statusColumn   As Long
+End Type
+
 Type CommandLayout
     sheetName      As String
     startRow       As Long
@@ -11,25 +30,6 @@ Type CommandLayout
     commandColumn  As Long
     responseColumn As Long
     statusColumn   As Long
-End Type
-
-Type ExecOption
-    timeout     As Long
-    interval    As Long
-    repeat      As Long
-    displayTime As Boolean
-    displayBin  As Boolean
-    saveBin     As Boolean
-End Type
-
-Type ConnectLayout
-    sheetName     As String
-    startRow      As Long
-    endRow        As Long
-    wireColumn    As Long
-    addressColumn As Long
-    timeoutColumn As Long
-    statusColumn  As Long
 End Type
 
 Function GetExecOption As ExecOption
@@ -42,9 +42,7 @@ Function GetExecOption As ExecOption
         End If
     Next sheet
     
-    If sheet.name = cfgSheet Then
-        Set sheet = Worksheets(cfgSheet)
-    Else
+    If sheet.name <> cfgSheet Then
         MsgBox "[config]シートはありません", vbInformation
         Exit Function
     End If
@@ -67,9 +65,7 @@ Function GetCnLayout As ConnectLayout
         End If
     Next sheet
     
-    If sheet.name = cfgSheet Then
-        Set sheet = Worksheets(cfgSheet)
-    Else
+    If sheet.name <> cfgSheet Then
         MsgBox "[config]シートはありません", vbInformation
         Exit Function
     End If
@@ -93,9 +89,7 @@ Function GetCmdLayout As CommandLayout
         End If
     Next sheet
     
-    If sheet.name = cfgSheet Then
-        Set sheet = Worksheets(cfgSheet)
-    Else
+    If sheet.name <> cfgSheet Then
         MsgBox "[config]シートはありません", vbInformation
         Exit Function
     End If
