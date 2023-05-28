@@ -1,6 +1,4 @@
 Attribute VB_Name = "tmctl"
-Option Explicit
-
 Public Const MaxStationNum = 128
 
 Type DeviceList
@@ -76,26 +74,10 @@ Function TmReceive(ByVal Id As Long, ByRef buf As String, ByVal blen As Long, By
     TmReceive = TmReceiveBin(Id, ByVal buf, blen, rlen)
 End Function
 
-Function TmReceiveOnly(ByVal Id As Long, ByRef buf As String, ByVal blen As Long, ByRef rlen As Long)
-    TmReceiveOnly = TmReceiveOnlyBin(Id, ByVal buf, blen, rlen)
-End Function
-
 Function TmReceiveBlock(ByVal Id As Long, ByRef buf() As Integer, ByVal blen As Long, ByRef rlen As Long, ByRef ed As Long)
     TmReceiveBlock = TmReceiveBlockData(Id, buf(0), blen, rlen, ed)
 End Function
 
 Function TmReceiveBlockB(ByVal Id As Long, ByRef buf() As Byte, ByVal blen As Long, ByRef rlen As Long, ByRef ed As Long)
     TmReceiveBlockB = TmReceiveBlockData(Id, buf(0), blen, rlen, ed)
-End Function
-Function TmSendByLength(ByVal Id As Long, ByVal msg As String, ByVal blen As Long) As Long
-    TmSendByLength = TmSendByLen(Id, ByVal msg, blen)
-End Function
-Function TmSendByLengthB(ByVal Id As Long, ByRef buf() As Byte, ByVal blen As Long) As Long
-    TmSendByLengthB = TmSendByLen(Id, buf(0), blen)
-End Function
-Function TmSendOnly(ByVal Id As Long, ByVal msg As String, ByVal blen As Long, ByVal ed As Long) As Long
-        TmSendOnly = TmSendOnlyBin(Id, ByVal msg, blen, ed)
-End Function
-Function TmSendOnlyB(ByVal Id As Long, ByRef buf() As Byte, ByVal blen As Long, ByVal ed As Long) As Long
-        TmSendOnlyB = TmSendOnlyBin(Id, buf(0), blen, ed)
 End Function

@@ -2,8 +2,11 @@ Attribute VB_Name = "SearchButton"
 Option Explicit
 
 Sub SearchButton_Click()
+    Dim bkupSel As Range
     Dim Ret As Long
     Dim Id  As Long
+    
+    Set bkupSel = Selection
     
     AddDllDirectories(ThisWorkbook.Path)
     
@@ -17,4 +20,6 @@ Sub SearchButton_Click()
     Ret = TmGetLastError(Id)
     Ret = TmSetRen(Id, 1)
     Ret = TmDeviceClear(Id)
+    
+    bkupSel.Select
 End Sub

@@ -1,7 +1,7 @@
 Attribute VB_Name = "ConfigSheet"
 Option Explicit
 
-Const cfgSheet As String = "config"
+Const cfgSheet As String = "98_config"
 
 Type ExecOption
     timeout        As Long
@@ -13,7 +13,6 @@ Type ExecOption
 End Type
 
 Type ConnectLayout
-    sheetName      As String
     startRow       As Long
     endRow         As Long
     wireColumn     As Long
@@ -23,7 +22,6 @@ Type ConnectLayout
 End Type
 
 Type CommandLayout
-    sheetName      As String
     startRow       As Long
     endRow         As Long
     deviceColumn   As Long
@@ -42,7 +40,7 @@ Function GetExecOption As ExecOption
         End If
     Next sheet
     
-    If sheet.name <> cfgSheet Then
+    If sheet Is Nothing Then
         MsgBox "[config]シートはありません", vbInformation
         Exit Function
     End If
@@ -65,18 +63,17 @@ Function GetCnLayout As ConnectLayout
         End If
     Next sheet
     
-    If sheet.name <> cfgSheet Then
+    If sheet Is Nothing Then
         MsgBox "[config]シートはありません", vbInformation
         Exit Function
     End If
     
-    GetCnLayout.sheetName     = CStr(sheet.Range("D14").Value)
-    GetCnLayout.startRow      = CLng(sheet.Range("D15").Value)
-    GetCnLayout.endRow     　 = CLng(sheet.Range("D16").Value)
-    GetCnLayout.wireColumn    = CLng(sheet.Range("D17").Value)
-    GetCnLayout.addressColumn = CLng(sheet.Range("D18").Value)
-    GetCnLayout.timeoutColumn = CLng(sheet.Range("D19").Value)
-    GetCnLayout.statusColumn  = CLng(sheet.Range("D20").Value)
+    GetCnLayout.startRow      = CLng(sheet.Range("D14").Value)
+    GetCnLayout.endRow     　 = CLng(sheet.Range("D15").Value)
+    GetCnLayout.wireColumn    = CLng(sheet.Range("D16").Value)
+    GetCnLayout.addressColumn = CLng(sheet.Range("D17").Value)
+    GetCnLayout.timeoutColumn = CLng(sheet.Range("D18").Value)
+    GetCnLayout.statusColumn  = CLng(sheet.Range("D19").Value)
 End Function
 
 Function GetCmdLayout As CommandLayout
@@ -89,16 +86,15 @@ Function GetCmdLayout As CommandLayout
         End If
     Next sheet
     
-    If sheet.name <> cfgSheet Then
+    If sheet Is Nothing Then
         MsgBox "[config]シートはありません", vbInformation
         Exit Function
     End If
     
-    GetCmdLayout.sheetName      = CStr(sheet.Range("D24").Value)
-    GetCmdLayout.startRow       = CLng(sheet.Range("D25").Value)
-    GetCmdLayout.endRow         = CLng(sheet.Range("D26").Value)
-    GetCmdLayout.deviceColumn   = CLng(sheet.Range("D27").Value)
-    GetCmdLayout.commandColumn  = CLng(sheet.Range("D28").Value)
-    GetCmdLayout.responseColumn = CLng(sheet.Range("D29").Value)
-    GetCmdLayout.statusColumn   = CLng(sheet.Range("D30").Value)
+    GetCmdLayout.startRow       = CLng(sheet.Range("D23").Value)
+    GetCmdLayout.endRow         = CLng(sheet.Range("D24").Value)
+    GetCmdLayout.deviceColumn   = CLng(sheet.Range("D25").Value)
+    GetCmdLayout.commandColumn  = CLng(sheet.Range("D26").Value)
+    GetCmdLayout.responseColumn = CLng(sheet.Range("D27").Value)
+    GetCmdLayout.statusColumn   = CLng(sheet.Range("D28").Value)
 End Function
