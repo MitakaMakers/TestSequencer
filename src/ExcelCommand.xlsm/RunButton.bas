@@ -17,24 +17,28 @@ Sub RunButton_Click()
     Dim row As Long
     For row = cnLo.startRow To cnLo.endRow
         Cells(row, cnLo.wireColumn).Select
-        MilliSleep (10)
+        Sleep (10)
         Cells(row, cnLo.addressColumn).Select
-        MilliSleep (10)
+        Sleep (10)
         Cells(row, cnLo.timeoutColumn).Select
-        MilliSleep (10)
+        Sleep (10)
         Cells(row, cnLo.statusColumn).Select
-        MilliSleep (10)
+        Sleep (10)
     Next row
     
     For row = cmdLo.startRow To cmdLo.endRow
         Cells(row, cmdLo.deviceColumn).Select
-        MilliSleep (excOpt.interval)
+        Sleep (excOpt.interval)
         Cells(row, cmdLo.commandColumn).Select
-        MilliSleep (10)
+        Sleep (10)
         Cells(row, cmdLo.responseColumn).Select
-        MilliSleep (10)
+        Sleep (10)
         Cells(row, cmdLo.statusColumn).Select
     Next row
     
     bkupSel.Select
 End Sub
+
+Function Sleep(Time As Long)
+    Application.Wait [Now()] + Time / 86400000
+End Function

@@ -1,7 +1,7 @@
 Attribute VB_Name = "LanguageSheet"
 Option Explicit
 
-Const langSheet    As String = "99_language"
+Const langSheet    As String = "98_language"
 Const startRow     As Long = 9
 Const endRow       As Long = 49
 Const sheetColumn  As Long = 3
@@ -24,12 +24,11 @@ Function GetLangTable() As Text()
     
     For Each sheet In Application.ThisWorkbook.Worksheets
         If sheet.name = langSheet Then
-            sheet.name = langSheet
             Exit For
         End If
     Next sheet
     
-    If sheet.name <> langSheet Then
+    If sheet Is Nothing Then
         MsgBox "[language]ÉVÅ[ÉgÇÕÇ†ÇËÇ‹ÇπÇÒ", vbInformation
         Exit Function
     End If
@@ -43,4 +42,3 @@ Function GetLangTable() As Text()
     Next I
     GetLangTable = table
 End Function
-

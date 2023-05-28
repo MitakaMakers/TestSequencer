@@ -1,7 +1,7 @@
 Attribute VB_Name = "ConfigSheet"
 Option Explicit
 
-Const cfgSheet As String = "98_config"
+Const cfgSheet As String = "97_config"
 
 Type ExecOption
     timeout        As Long
@@ -35,7 +35,6 @@ Function GetExecOption As ExecOption
     
     For Each sheet In Application.ThisWorkbook.Worksheets
         If sheet.name = cfgSheet Then
-            sheet.name = cfgSheet
             Exit For
         End If
     Next sheet
@@ -58,7 +57,6 @@ Function GetCnLayout As ConnectLayout
     
     For Each sheet In Application.ThisWorkbook.Worksheets
         If sheet.name = cfgSheet Then
-            sheet.name = cfgSheet
             Exit For
         End If
     Next sheet
@@ -81,7 +79,6 @@ Function GetCmdLayout As CommandLayout
     
     For Each sheet In Application.ThisWorkbook.Worksheets
         If sheet.name = cfgSheet Then
-            sheet.name = cfgSheet
             Exit For
         End If
     Next sheet
