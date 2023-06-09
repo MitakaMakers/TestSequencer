@@ -1,4 +1,20 @@
 Attribute VB_Name = "LanguageSheet"
+'    Excel Commmand: An excel macro file to communicate some measurement insturuments.
+'    Copyright (C) 2023 Takatoshi Yamaoka
+'
+'    This program is free software: you can redistribute it and/or modify
+'    it under the terms of the GNU Affero General Public License as
+'    published by the Free Software Foundation, either version 3 of the
+'    License, or (at your option) any later version.
+'
+'    This program is distributed in the hope that it will be useful,
+'    but WITHOUT ANY WARRANTY; without even the implied warranty of
+'    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+'    GNU Affero General Public License for more details.
+'
+'    You should have received a copy of the GNU Affero General Public License
+'    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 Option Explicit
 
 Const langSheet    As String = "98_language"
@@ -17,9 +33,9 @@ Type Text
 End Type
 
 Function GetLangTable() As Text()
-    Dim sheet As Worksheet
-    Dim column As Long
-    Dim i As Long
+    Dim sheet   As Worksheet
+    Dim column  As Long
+    Dim i       As Long
     Dim table() As Text
     
     For Each sheet In Application.ThisWorkbook.Worksheets
