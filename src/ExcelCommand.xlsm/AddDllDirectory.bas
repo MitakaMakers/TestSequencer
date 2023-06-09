@@ -7,6 +7,6 @@ Private Declare PtrSafe Function AddDllDirectory Lib "kernel32.dll" (ByVal fileN
 Const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = &H1000
 
 Sub AddDllDirectories(DLLFoldPath As String)
-    SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS)
-    AddDllDirectory(StrConv(DLLFoldPath, vbUnicode))
+    SetDefaultDllDirectories (LOAD_LIBRARY_SEARCH_DEFAULT_DIRS)
+    AddDllDirectory (StrConv(DLLFoldPath, vbUnicode))
 End Sub

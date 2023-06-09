@@ -30,7 +30,7 @@ Type CommandLayout
     statusColumn   As Long
 End Type
 
-Function GetExecOption As ExecOption
+Function GetExecOption() As ExecOption
     Dim sheet As Worksheet
     
     For Each sheet In Application.ThisWorkbook.Worksheets
@@ -44,15 +44,15 @@ Function GetExecOption As ExecOption
         Exit Function
     End If
     
-    GetExecOption.timeout     = CLng (sheet.Range("D5").Value)
-    GetExecOption.interval    = CLng (sheet.Range("D6").Value)
-    GetExecOption.repeat      = CLng (sheet.Range("D7").Value)
-    GetExecOption.displayTime = CBool(sheet.Range("D8").Value)
-    GetExecOption.displayBin  = CBool(sheet.Range("D9").Value)
-    GetExecOption.saveBin     = CBool(sheet.Range("D10").Value)
+    GetExecOption.timeout = CLng(sheet.Range("D5").value)
+    GetExecOption.interval = CLng(sheet.Range("D6").value)
+    GetExecOption.repeat = CLng(sheet.Range("D7").value)
+    GetExecOption.displayTime = CBool(sheet.Range("D8").value)
+    GetExecOption.displayBin = CBool(sheet.Range("D9").value)
+    GetExecOption.saveBin = CBool(sheet.Range("D10").value)
 End Function
 
-Function GetCnLayout As ConnectLayout
+Function GetCnLayout() As ConnectLayout
     Dim sheet As Worksheet
     
     For Each sheet In Application.ThisWorkbook.Worksheets
@@ -66,15 +66,15 @@ Function GetCnLayout As ConnectLayout
         Exit Function
     End If
     
-    GetCnLayout.startRow      = CLng(sheet.Range("D14").Value)
-    GetCnLayout.endRow     Å@ = CLng(sheet.Range("D15").Value)
-    GetCnLayout.wireColumn    = CLng(sheet.Range("D16").Value)
-    GetCnLayout.addressColumn = CLng(sheet.Range("D17").Value)
-    GetCnLayout.timeoutColumn = CLng(sheet.Range("D18").Value)
-    GetCnLayout.statusColumn  = CLng(sheet.Range("D19").Value)
+    GetCnLayout.startRow = CLng(sheet.Range("D14").value)
+    GetCnLayout.endRow = CLng(sheet.Range("D15").value)
+    GetCnLayout.wireColumn = CLng(sheet.Range("D16").value)
+    GetCnLayout.addressColumn = CLng(sheet.Range("D17").value)
+    GetCnLayout.timeoutColumn = CLng(sheet.Range("D18").value)
+    GetCnLayout.statusColumn = CLng(sheet.Range("D19").value)
 End Function
 
-Function GetCmdLayout As CommandLayout
+Function GetCmdLayout() As CommandLayout
     Dim sheet As Worksheet
     
     For Each sheet In Application.ThisWorkbook.Worksheets
@@ -88,10 +88,10 @@ Function GetCmdLayout As CommandLayout
         Exit Function
     End If
     
-    GetCmdLayout.startRow       = CLng(sheet.Range("D23").Value)
-    GetCmdLayout.endRow         = CLng(sheet.Range("D24").Value)
-    GetCmdLayout.deviceColumn   = CLng(sheet.Range("D25").Value)
-    GetCmdLayout.commandColumn  = CLng(sheet.Range("D26").Value)
-    GetCmdLayout.responseColumn = CLng(sheet.Range("D27").Value)
-    GetCmdLayout.statusColumn   = CLng(sheet.Range("D28").Value)
+    GetCmdLayout.startRow = CLng(sheet.Range("D23").value)
+    GetCmdLayout.endRow = CLng(sheet.Range("D24").value)
+    GetCmdLayout.deviceColumn = CLng(sheet.Range("D25").value)
+    GetCmdLayout.commandColumn = CLng(sheet.Range("D26").value)
+    GetCmdLayout.responseColumn = CLng(sheet.Range("D27").value)
+    GetCmdLayout.statusColumn = CLng(sheet.Range("D28").value)
 End Function

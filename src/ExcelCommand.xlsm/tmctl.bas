@@ -9,23 +9,6 @@ Type DeviceListArray
     list(MaxStationNum - 1) As DeviceList
 End Type
 
-Global Const CTL_OK = 0
-Global Const CTL_ERROR = 1
-
-Global Const TERM_CRLF = 0
-Global Const TERM_CR = 1
-Global Const TERM_LF = 2
-Global Const TERM_EOI = 3
-
-Global Const CTL_GPIB = 1
-Global Const CTL_RS232 = 2
-Global Const CTL_USB = 3
-Global Const CTL_ETHER = 4
-Global Const CTL_USBTMC2 = 7
-Global Const CTL_VXI11 = 8
-Global Const CTL_SOCKET = 11
-Global Const CTL_HISLIP = 14
-
 #If VBA7 And Win64 Then
 Declare PtrSafe Function TmInitialize Lib "tmctl64.dll" (ByVal wire As Long, ByVal adr As String, ByRef Id As Long) As Long
 Declare PtrSafe Function TmInitializeEx Lib "tmctl64.dll" (ByVal wire As Long, ByVal adr As String, ByRef Id As Long, ByVal tmo As Long) As Long

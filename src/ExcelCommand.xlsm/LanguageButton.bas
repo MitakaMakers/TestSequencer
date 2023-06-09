@@ -3,14 +3,14 @@ Option Explicit
 
 Sub ApplyButton_Click()
     Dim table() As Text
-    Dim I As Long
+    Dim i As Long
     Dim cell As Range
     
     table = GetLangTable()
-    For I = 0 To UBound(table)
-        Set cell = Worksheets(table(I).sheetname).Cells(table(I).row, table(I).column)
-        If cell.value <> table(I).value Then
-            cell.value = table(I).value
+    For i = 0 To UBound(table)
+        Set cell = Worksheets(table(i).sheetname).Cells(table(i).row, table(i).column)
+        If cell.value <> table(i).value Then
+            cell.value = table(i).value
         End If
-    Next I
+    Next i
 End Sub

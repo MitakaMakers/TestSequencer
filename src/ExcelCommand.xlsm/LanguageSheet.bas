@@ -19,7 +19,7 @@ End Type
 Function GetLangTable() As Text()
     Dim sheet As Worksheet
     Dim column As Long
-    Dim I As Long
+    Dim i As Long
     Dim table() As Text
     
     For Each sheet In Application.ThisWorkbook.Worksheets
@@ -34,11 +34,11 @@ Function GetLangTable() As Text()
     End If
     
     ReDim table(endRow - startRow)
-    For I = 0 To endRow - startRow
-        table(I).sheetname = CStr(sheet.Cells(startRow + I, sheetColumn).value)
-        table(I).row       = CLng(sheet.Cells(startRow + I, rowColumn).value)
-        table(I).column    = CLng(sheet.Cells(startRow + I, columnColumn).value)
-        table(I).value     = CStr(sheet.Cells(startRow + I, valueColumn).value)
-    Next I
+    For i = 0 To endRow - startRow
+        table(i).sheetname = CStr(sheet.Cells(startRow + i, sheetColumn).value)
+        table(i).row = CLng(sheet.Cells(startRow + i, rowColumn).value)
+        table(i).column = CLng(sheet.Cells(startRow + i, columnColumn).value)
+        table(i).value = CStr(sheet.Cells(startRow + i, valueColumn).value)
+    Next i
     GetLangTable = table
 End Function
