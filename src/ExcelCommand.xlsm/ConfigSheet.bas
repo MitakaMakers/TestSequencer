@@ -17,15 +17,11 @@ Attribute VB_Name = "ConfigSheet"
 
 Option Explicit
 
-Const cfgSheet As String = "97_config"
+Const cfgSheet As String = "Config"
 
 Type ExecOption
     timeout        As Long
     interval       As Long
-    repeat         As Long
-    displayTime    As Boolean
-    displayBin     As Boolean
-    saveBin        As Boolean
 End Type
 
 Type ConnectLayout
@@ -33,16 +29,17 @@ Type ConnectLayout
     endRow         As Long
     wireColumn     As Long
     addressColumn  As Long
-    timeoutColumn  As Long
+    termColumn     As Long
     statusColumn   As Long
 End Type
 
 Type CommandLayout
     startRow       As Long
     endRow         As Long
-    deviceColumn   As Long
-    commandColumn  As Long
-    responseColumn As Long
+    opColumn       As Long
+    arg1Column     As Long
+    arg2Column     As Long
+    resultColumn   As Long
     statusColumn   As Long
 End Type
 
@@ -56,16 +53,12 @@ Function GetExecOption() As ExecOption
     Next sheet
     
     If sheet Is Nothing Then
-        MsgBox "[config]シートはありません", vbInformation
+        MsgBox "[" & cfgSheet & "]シートが見つかりません", vbInformation
         Exit Function
     End If
     
-    GetExecOption.timeout     =  CLng(sheet.Range("D5").value)
-    GetExecOption.interval    =  CLng(sheet.Range("D6").value)
-    GetExecOption.repeat      =  CLng(sheet.Range("D7").value)
-    GetExecOption.displayTime = CBool(sheet.Range("D8").value)
-    GetExecOption.displayBin  = CBool(sheet.Range("D9").value)
-    GetExecOption.saveBin     = CBool(sheet.Range("D10").value)
+    GetExecOption.timeout  = CLng(sheet.Range("D5").value)
+    GetExecOption.interval = CLng(sheet.Range("D6").value)
 End Function
 
 Function GetCnLayout() As ConnectLayout
@@ -78,16 +71,16 @@ Function GetCnLayout() As ConnectLayout
     Next sheet
     
     If sheet Is Nothing Then
-        MsgBox "[config]シートはありません", vbInformation
+        MsgBox "[" & cfgSheet & "]シートが見つかりません", vbInformation
         Exit Function
     End If
     
-    GetCnLayout.startRow      = CLng(sheet.Range("D14").value)
-    GetCnLayout.endRow        = CLng(sheet.Range("D15").value)
-    GetCnLayout.wireColumn    = CLng(sheet.Range("D16").value)
-    GetCnLayout.addressColumn = CLng(sheet.Range("D17").value)
-    GetCnLayout.timeoutColumn = CLng(sheet.Range("D18").value)
-    GetCnLayout.statusColumn  = CLng(sheet.Range("D19").value)
+    GetCnLayout.startRow      = CLng(sheet.Range("D10").value)
+    GetCnLayout.endRow        = CLng(sheet.Range("D11").value)
+    GetCnLayout.wireColumn    = CLng(sheet.Range("D12").value)
+    GetCnLayout.addressColumn = CLng(sheet.Range("D13").value)
+    GetCnLayout.termColumn    = CLng(sheet.Range("D14").value)
+    GetCnLayout.statusColumn  = CLng(sheet.Range("D15").value)
 End Function
 
 Function GetCmdLayout() As CommandLayout
@@ -100,14 +93,15 @@ Function GetCmdLayout() As CommandLayout
     Next sheet
     
     If sheet Is Nothing Then
-        MsgBox "[config]シートはありません", vbInformation
+        MsgBox "[" & cfgSheet & "]シートが見つかりません", vbInformation
         Exit Function
     End If
     
-    GetCmdLayout.startRow       = CLng(sheet.Range("D23").value)
-    GetCmdLayout.endRow         = CLng(sheet.Range("D24").value)
-    GetCmdLayout.deviceColumn   = CLng(sheet.Range("D25").value)
-    GetCmdLayout.commandColumn  = CLng(sheet.Range("D26").value)
-    GetCmdLayout.responseColumn = CLng(sheet.Range("D27").value)
-    GetCmdLayout.statusColumn   = CLng(sheet.Range("D28").value)
+    GetCmdLayout.startRow     = CLng(sheet.Range("D19").value)
+    GetCmdLayout.endRow       = CLng(sheet.Range("D20").value)
+    GetCmdLayout.opColumn     = CLng(sheet.Range("D21").value)
+    GetCmdLayout.arg1Column   = CLng(sheet.Range("D22").value)
+    GetCmdLayout.arg2Column   = CLng(sheet.Range("D23").value)
+    GetCmdLayout.resultColumn = CLng(sheet.Range("D24").value)
+    GetCmdLayout.statusColumn = CLng(sheet.Range("D25").value)
 End Function

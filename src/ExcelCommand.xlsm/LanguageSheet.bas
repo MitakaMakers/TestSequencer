@@ -19,7 +19,7 @@ Option Explicit
 
 Const langSheet         As String = "Language"
 Const startRow          As Long = 6
-Const endRow            As Long = 50
+Const endRow            As Long = 53
 Const sheetColumn       As Long = 3
 Const rowColumn         As Long = 4
 Const columnColumn      As Long = 5
@@ -46,16 +46,16 @@ Function GetLangTable(valueColumn As Long) As Text()
     Next sheet
     
     If sheet Is Nothing Then
-        MsgBox "[language]シートがありません", vbInformation
+        MsgBox "[" & langSheet & "]シートが見つかりません", vbInformation
         Exit Function
     End If
     
     ReDim table(endRow - startRow)
     For i = 0 To endRow - startRow
         table(i).sheetname = CStr(sheet.Cells(startRow + i, sheetColumn).value)
-        table(i).row = CLng(sheet.Cells(startRow + i, rowColumn).value)
-        table(i).column = CLng(sheet.Cells(startRow + i, columnColumn).value)
-        table(i).value = CStr(sheet.Cells(startRow + i, valueColumn).value)
+        table(i).row       = CLng(sheet.Cells(startRow + i, rowColumn).value)
+        table(i).column    = CLng(sheet.Cells(startRow + i, columnColumn).value)
+        table(i).value     = CStr(sheet.Cells(startRow + i, valueColumn).value)
     Next i
     GetLangTable = table
 End Function
