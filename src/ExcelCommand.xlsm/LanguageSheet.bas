@@ -17,13 +17,14 @@ Attribute VB_Name = "LanguageSheet"
 
 Option Explicit
 
-Const langSheet    As String = "98_language"
-Const startRow     As Long = 9
-Const endRow       As Long = 49
-Const sheetColumn  As Long = 3
-Const rowColumn    As Long = 4
-Const columnColumn As Long = 5
-Const valueColumn  As Long = 7
+Const langSheet         As String = "Language"
+Const startRow          As Long = 6
+Const endRow            As Long = 50
+Const sheetColumn       As Long = 3
+Const rowColumn         As Long = 4
+Const columnColumn      As Long = 5
+Const japaneseColumn    As Long = 6
+Const englishColumn     As Long = 7
 
 Type Text
     sheetname As String
@@ -32,7 +33,7 @@ Type Text
     value     As String
 End Type
 
-Function GetLangTable() As Text()
+Function GetLangTable(valueColumn As Long) As Text()
     Dim sheet   As Worksheet
     Dim column  As Long
     Dim i       As Long
@@ -45,7 +46,7 @@ Function GetLangTable() As Text()
     Next sheet
     
     If sheet Is Nothing Then
-        MsgBox "[language]シートはありません", vbInformation
+        MsgBox "[language]シートがありません", vbInformation
         Exit Function
     End If
     
@@ -58,3 +59,31 @@ Function GetLangTable() As Text()
     Next i
     GetLangTable = table
 End Function
+
+Sub JapaneseButton_Click()
+    Dim table() As Text
+    Dim i       As Long
+    Dim cell    As Range
+    
+    table = GetLangTable(japaneseColumn)
+    For i = 0 To UBound(table)
+        Set cell = Worksheets(table(i).sheetname).Cells(table(i).row, table(i).column)
+        If cell.value <> table(i).value Then
+            cell.value = table(i).value
+        End If
+    Next i
+End Sub
+
+Sub EnglishButton_Click()
+    Dim table() As Text
+    Dim i       As Long
+    Dim cell    As Range
+    
+    table = GetLangTable(englishColumn)
+    For i = 0 To UBound(table)
+        Set cell = Worksheets(table(i).sheetname).Cells(table(i).row, table(i).column)
+        If cell.value <> table(i).value Then
+            cell.value = table(i).value
+        End If
+    Next i
+End Sub
