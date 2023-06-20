@@ -16,15 +16,17 @@ Our goal is to create a calibration automation software like Fluke's MET/CAL in 
 - Measuring instruments compliant with IEEE488.2-1989
 
 # Operating environment
-- Windows: XP, 7, 10, 11
-- Excel: 2010, 2013, 2016, 2019, 2021
-- Office for Mac and Microsoft 365 are not supported.
+- OS：Windows 2000, XP, Vista, 7, 8, 10, 11
+- Excel：2010, 2013, 2016, 2019, 2021
+  - Office for Mac and Microsoft 365 are not supported.
 
 # Communication interface
-- GP-IB: Environment in which National Instruments GP-IB interface works.　* Install NI-488.2 separately.
+- GP-IB: Environment in which National Instruments GP-IB interface works.
+  - Install [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html) separately.
 - RS232C: Environment in which serial port or virtual COM port operates.
 - LAN: Socket communication, VXI-11, or HiSLIP must work.
-- USB: Environment where National Instruments NI-VISA or Yokogawa Measurement USB driver works.　*Please install NI-VISA or Yokogawa USB driver separately.
+- USB: Environment where National Instruments NI-VISA or Yokogawa Measurement USB driver works.
+  - Please install [NI-VISA](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-visa.html) or [Yokogawa USB driver](https://tmi.yokogawa.com/jp/library/documents-downloads/software/usb-drivers/) separately.
 
 ## How to use
 ## Download and Extract
@@ -36,7 +38,7 @@ By default Excel displays a security warning and disables macros when you try to
 - In an Excel program, on the File tab, click Options.
 - Click Trust Center, and then click Trust Center Settings. The following screen is an example from
 - Click "Macro Settings".
-- Select "Disable VBA macros except digitally signed macros" from the "Macro Settings" list
+- Select "Enable VBA macros" from the "Macro Settings" list
 
 ## Address string
 (under construction)
@@ -46,17 +48,18 @@ By default Excel displays a security warning and disables macros when you try to
 
 ## Copyright statement as open source software
 Excel Commmand: An excel macro file to communicate some measurement insturuments.
+
 Copyright (C) 2023 Takatoshi Yamaoka
 
 This program is free software: you can redistribute it and/or modify
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as
-License, or any later version.
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
-If not, see <https://www.gnu.org/licenses/>.
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
