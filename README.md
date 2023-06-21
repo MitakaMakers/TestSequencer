@@ -40,13 +40,13 @@ By default Excel displays a security warning and disables macros when you try to
 - Select "Enable VBA macros" from the "Macro Settings" list
 
 ## Address string
-![](.\docs\101e.png)
+![<img src="docs/101e.png"](docs\101e.png)
 
 ## Instruction
-![](.\docs\102e.png)
+![<img src="docs/102e.png"](docs\102e.png)
 
 ## Example
-![](.\docs\103e.png)
+![<img src="docs/103e.png"](docs\103e.png)
 
 ## Copyright
 Excel Commmand: An excel macro file to communicate some measurement insturuments.
