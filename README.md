@@ -13,7 +13,7 @@ Our goal is to create a calibration automation software like Fluke's MET/CAL in 
 - The VBA part is released as open source software.
 
 # Target devices
-- Measuring instruments compliant with IEEE488.2-1989
+- Measuring instruments compliant with IEEE488.2-1987
 
 # Operating environment
 - OS：Windows 2000, XP, Vista, 7, 8, 10, 11
