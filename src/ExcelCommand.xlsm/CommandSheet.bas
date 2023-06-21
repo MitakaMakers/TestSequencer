@@ -17,7 +17,7 @@ Attribute VB_Name = "CommandSheet"
 
 Option Explicit
 
-Sub SearchButton_Click()
+Sub SearchButton_Click(ByVal Target As Range)
     Dim bkupSel As Range
     Dim cnLo    As ConnectLayout
     Dim ret     As Long
@@ -30,25 +30,25 @@ Sub SearchButton_Click()
     Dim wire    As Long
     
     Set bkupSel = Selection
-    
-    AddDllDirectories (ThisWorkbook.Path)
-    
     cnLo = GetCnLayout()
-    ret = TmSearchDevices(7, devices, 128, num, "")
-    i = 0
-    For row = cnLo.startRow To cnLo.endRow
-        Cells(row, cnLo.wireColumn).Select
-        value = Cells(row, cnLo.wireColumn).value
-        wire = GetWireType(value)
-        If wire = 7 Then
-             If i < num Then
-                 Cells(row, cnLo.addressColumn).Select
-                 Cells(row, cnLo.addressColumn).value = devices.list(i).adr
-                 i = i + 1
-             End If
+    If Target.column = cnLo.wireColumn Then
+        If cnLo.startRow <= Target.column And Target.column <= cnLo.endRow Then
+            AddDllDirectories (ThisWorkbook.Path)
+            ret = TmSearchDevices(7, devices, 128, num, "")
+            For i = 0 To num
+                Cells(row, cnLo.wireColumn).Select
+                value = Cells(row, cnLo.wireColumn).value
+                wire = GetWireType(value)
+                If wire = 7 Then
+                     If i < num Then
+                         Cells(row, cnLo.addressColumn).Select
+                         Cells(row, cnLo.addressColumn).value = devices.list(i).adr
+                         i = i + 1
+                     End If
+                End If
+            Next i
         End If
-    Next row
-    
+    End If
     bkupSel.Select
 End Sub
 

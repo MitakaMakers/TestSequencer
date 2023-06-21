@@ -17,73 +17,60 @@ Attribute VB_Name = "LanguageSheet"
 
 Option Explicit
 
-Const langSheet         As String = "Language"
-Const startRow          As Long = 6
-Const endRow            As Long = 53
-Const sheetColumn       As Long = 3
-Const rowColumn         As Long = 4
-Const columnColumn      As Long = 5
-Const japaneseColumn    As Long = 6
-Const englishColumn     As Long = 7
-
-Type Text
-    sheetname As String
-    row       As Long
-    column    As Long
-    value     As String
-End Type
-
-Function GetLangTable(valueColumn As Long) As Text()
-    Dim sheet   As Worksheet
-    Dim column  As Long
-    Dim i       As Long
-    Dim table() As Text
+Sub ChangeLanguage(valueColumn As Long, lnLo As LanguageLayout)
+    Dim bkupSel As Range
+    Dim sheet     As Worksheet
+    Dim i         As Long
+    Dim sheetname As String
+    Dim row       As Long
+    Dim column    As Long
+    Dim value     As String
+    Dim cell      As Range
+    
+    Set bkupSel = Selection
     
     For Each sheet In Application.ThisWorkbook.Worksheets
-        If sheet.name = langSheet Then
+        If sheet.name = lnLo.sheetname Then
             Exit For
         End If
     Next sheet
     
     If sheet Is Nothing Then
-        MsgBox "[" & langSheet & "]シートが見つかりません", vbInformation
-        Exit Function
+        MsgBox "[" & lnLo.sheetname & "]シートが見つかりません", vbInformation
+        Exit Sub
     End If
     
-    ReDim table(endRow - startRow)
-    For i = 0 To endRow - startRow
-        table(i).sheetname = CStr(sheet.Cells(startRow + i, sheetColumn).value)
-        table(i).row = CLng(sheet.Cells(startRow + i, rowColumn).value)
-        table(i).column = CLng(sheet.Cells(startRow + i, columnColumn).value)
-        table(i).value = CStr(sheet.Cells(startRow + i, valueColumn).value)
-    Next i
-    GetLangTable = table
-End Function
-
-Sub JapaneseButton_Click()
-    Dim table() As Text
-    Dim i       As Long
-    Dim cell    As Range
-    
-    table = GetLangTable(japaneseColumn)
-    For i = 0 To UBound(table)
-        Set cell = Worksheets(table(i).sheetname).Cells(table(i).row, table(i).column)
-        If cell.value <> table(i).value Then
-            cell.value = table(i).value
+    For i = 0 To lnLo.endRow - lnLo.startRow
+        sheet.Cells(lnLo.startRow + i, lnLo.sheetColumn).Select
+        sheetname = CStr(sheet.Cells(lnLo.startRow + i, lnLo.sheetColumn).value)
+        If sheetname = "END" Then
+            Exit For
+        End If
+        sheet.Cells(lnLo.startRow + i, lnLo.rowColumn).Select
+        row = CLng(sheet.Cells(lnLo.startRow + i, lnLo.rowColumn).value)
+        sheet.Cells(lnLo.startRow + i, lnLo.columnColumn).Select
+        column = CLng(sheet.Cells(lnLo.startRow + i, lnLo.columnColumn).value)
+        sheet.Cells(lnLo.startRow + i, valueColumn).Select
+        value = CStr(sheet.Cells(lnLo.startRow + i, valueColumn).value)
+        Set cell = Worksheets(sheetname).Cells(row, column)
+        If cell.value <> value Then
+            cell.value = value
         End If
     Next i
+    
+    bkupSel.Select
+End Sub
+
+Sub JapaneseButton_Click()
+    Dim lnLo    As LanguageLayout
+    
+    lnLo = GetLangLayout()
+    Call ChangeLanguage(lnLo.japaneseColumn, lnLo)
 End Sub
 
 Sub EnglishButton_Click()
-    Dim table() As Text
-    Dim i       As Long
-    Dim cell    As Range
+    Dim lnLo    As LanguageLayout
     
-    table = GetLangTable(englishColumn)
-    For i = 0 To UBound(table)
-        Set cell = Worksheets(table(i).sheetname).Cells(table(i).row, table(i).column)
-        If cell.value <> table(i).value Then
-            cell.value = table(i).value
-        End If
-    Next i
+    lnLo = GetLangLayout()
+    Call ChangeLanguage(lnLo.englishColumn, lnLo)
 End Sub

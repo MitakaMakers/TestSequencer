@@ -43,6 +43,17 @@ Type CommandLayout
     statusColumn   As Long
 End Type
 
+Type LanguageLayout
+    sheetname      As String
+    startRow       As Long
+    endRow         As Long
+    sheetColumn    As Long
+    rowColumn      As Long
+    columnColumn   As Long
+    japaneseColumn As Long
+    englishColumn  As Long
+End Type
+
 Function GetExecOption() As ExecOption
     Dim sheet As Worksheet
     
@@ -105,3 +116,28 @@ Function GetCmdLayout() As CommandLayout
     GetCmdLayout.resultColumn = CLng(sheet.Range("D24").value)
     GetCmdLayout.statusColumn = CLng(sheet.Range("D25").value)
 End Function
+
+Function GetLangLayout() As LanguageLayout
+    Dim sheet As Worksheet
+    
+    For Each sheet In Application.ThisWorkbook.Worksheets
+        If sheet.name = cfgSheet Then
+            Exit For
+        End If
+    Next sheet
+    
+    If sheet Is Nothing Then
+        MsgBox "[" & cfgSheet & "]ÉVÅ[ÉgÇ™å©Ç¬Ç©ÇËÇ‹ÇπÇÒ", vbInformation
+        Exit Function
+    End If
+    
+    GetLangLayout.sheetname = CStr(sheet.Range("D29").value)
+    GetLangLayout.startRow = CLng(sheet.Range("D30").value)
+    GetLangLayout.endRow = CLng(sheet.Range("D31").value)
+    GetLangLayout.sheetColumn = CLng(sheet.Range("D32").value)
+    GetLangLayout.rowColumn = CLng(sheet.Range("D33").value)
+    GetLangLayout.columnColumn = CLng(sheet.Range("D34").value)
+    GetLangLayout.japaneseColumn = CLng(sheet.Range("D35").value)
+    GetLangLayout.englishColumn = CLng(sheet.Range("D36").value)
+End Function
+
