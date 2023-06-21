@@ -175,8 +175,8 @@ Sub RunButton_Click()
     bkupSel.Select
 End Sub
 
-Function Sleep(Time As Long)
-    Application.Wait [Now()] + Time / 86400000
+Function Sleep(Second As Long)
+    Application.Wait [Now()] + (Second / (24 * 60 * 60))
 End Function
 
 Function GetWireType(wire As Variant) As Long

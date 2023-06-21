@@ -1,4 +1,4 @@
-Attribute VB_Name = "AddDllDirectory"
+Attribute VB_Name = "LoadLibrary"
 '    Excel Commmand: An excel macro file to communicate some measurement insturuments.
 '    Copyright (C) 2023 Takatoshi Yamaoka
 '
@@ -17,12 +17,14 @@ Attribute VB_Name = "AddDllDirectory"
 
 Option Explicit
 
-Private Declare PtrSafe Function SetDefaultDllDirectories Lib "kernel32.dll" (ByVal DirectoryFlags As Long) As Long
-Private Declare PtrSafe Function AddDllDirectory Lib "kernel32.dll" (ByVal fileName As String) As LongPtr
-
-Const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = &H1000
+Declare PtrSafe Function LoadLibrary Lib "kernel32.dll" Alias "LoadLibraryA" (ByVal fileName As String) As Long
 
 Sub AddDllDirectories(DLLFoldPath As String)
-    SetDefaultDllDirectories (LOAD_LIBRARY_SEARCH_DEFAULT_DIRS)
-    AddDllDirectory (StrConv(DLLFoldPath, vbUnicode))
+#If VBA7 And Win64 Then
+    LoadLibrary (DLLFoldPath & "\YKMUSB64.dll")
+    LoadLibrary (DLLFoldPath & "\tmctl64.dll")
+#Else
+    LoadLibrary (DLLFoldPath & "\YKMUSB.dll")
+    LoadLibrary (DLLFoldPath & "\tmctl.dll")
+#End If
 End Sub

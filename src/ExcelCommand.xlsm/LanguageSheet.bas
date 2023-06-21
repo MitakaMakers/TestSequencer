@@ -53,9 +53,9 @@ Function GetLangTable(valueColumn As Long) As Text()
     ReDim table(endRow - startRow)
     For i = 0 To endRow - startRow
         table(i).sheetname = CStr(sheet.Cells(startRow + i, sheetColumn).value)
-        table(i).row       = CLng(sheet.Cells(startRow + i, rowColumn).value)
-        table(i).column    = CLng(sheet.Cells(startRow + i, columnColumn).value)
-        table(i).value     = CStr(sheet.Cells(startRow + i, valueColumn).value)
+        table(i).row = CLng(sheet.Cells(startRow + i, rowColumn).value)
+        table(i).column = CLng(sheet.Cells(startRow + i, columnColumn).value)
+        table(i).value = CStr(sheet.Cells(startRow + i, valueColumn).value)
     Next i
     GetLangTable = table
 End Function
