@@ -1,19 +1,18 @@
 [日本語](README.ja.md) | [English](README.md)
 
 # What is Excel Command?
-Excel Command is free software for easy control of measuring instruments. 
+Excel Command is an open source software for easy control of measurment instruments. 
 Communication commands can be written in an Excel file and sent and received by various communication interfaces. 
 Our goal is to create a calibration automation software like Fluke's MET/CAL in the future.
 
 # Features
-- Works with ExcelVBA (spreadsheet macro language) and TMCTL.DLL. Any installation work is not required.
+- Works with Excel VBA (spreadsheet macro language) and TMCTL.DLL. Any installation work is not required.
 - Communicates with measuring instruments via GP-IB, RS232, USB, or LAN.
-- Controls and measures up to 8 measuring instruments.
+- Controls and measures up to eithgt measurment instruments.
 - Japanese and English text can be switched.
-- The VBA part is released as open source software.
 
 # Target devices
-- Measuring instruments compliant with IEEE488.2-1987
+- Measurment instruments compliant with IEEE488.2-1987
 
 # Operating environment
 - OS：Windows 2000, XP, Vista, 7, 8, 10, 11
@@ -33,7 +32,7 @@ Our goal is to create a calibration automation software like Fluke's MET/CAL in 
 After downloading the ZIP file, extract the 5 file (ExcelCommand.xlsm, tmctl.dll, tmctl64.dll, YKMUSB.dll and YKMUSB64.dll), and place these files in the same directory.
 
 ## Open a book containing macros
-By default Excel displays a security warning and disables macros when you try to open a book containing macros. To enable or disable macros, follow these steps
+By default Excel displays a security warning and disables macros when you try to open a book containing macros. To enable macros, follow these steps
 
 - In an Excel program, on the File tab, click Options.
 - Click Trust Center, and then click Trust Center Settings. The following screen is an example from
@@ -46,7 +45,7 @@ By default Excel displays a security warning and disables macros when you try to
 ## Instruction
 (under construction)
 
-## Copyright statement as open source software
+## Copyright
 Excel Commmand: An excel macro file to communicate some measurement insturuments.
 
 Copyright (C) 2023 Takatoshi Yamaoka
