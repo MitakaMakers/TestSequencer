@@ -1,6 +1,6 @@
 [日本語](README.ja.md) | [English](README.md)
 
-# What is Excel Command?
+# about Excel Command
 Excel Command is an open source software for easy control of measurment instruments. 
 Communication commands can be written in an Excel file and sent and received by various communication interfaces. 
 Our goal is to create a calibration automation software like Fluke's MET/CAL in the future.
