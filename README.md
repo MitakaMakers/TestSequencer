@@ -7,18 +7,18 @@ It is intended to be used as a jig program to check the communication with the m
 The goal is for the software to be able to quickly generate calibration certificates.
 
 # Features
-- Works with Excel VBA (spreadsheet macro language) and TMCTL.DLL. Any installation work is not required.
+- Works with Excel VBA (spreadsheet macro language) and TMCTL.DLL. You can run the program right after downloading it.
 - Communicates with measuring instruments via GP-IB, RS232, USB, or LAN.
 - Controls and measures up to eithgt measurment instruments.
 - Japanese and English text can be switched.
-
-# Target devices
-- Measurment instruments compliant with IEEE488.2-1987
 
 # Operating environment
 - OS：Windows 2000, XP, Vista, 7, 8, 10, 11
 - Excel：2010, 2013, 2016, 2019, 2021
   - Office for Mac and Microsoft 365 are not supported.
+
+# Target devices
+- Measurment instruments compliant with IEEE488.2-1987
 
 # Communication interface
 - GP-IB: Environment in which National Instruments GP-IB interface works.
