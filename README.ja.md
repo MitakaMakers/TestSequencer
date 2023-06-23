@@ -1,8 +1,8 @@
 [English](README.md) | [日本語](README.ja.md)
 
-# エクセルコマンドとは
-エクセルコマンドは測定器を簡単に制御するためのオープンソースソフトウェアです。
-エクセルファイルに通信コマンドを記入し、各種通信インタフェースで送受信することができます。
+# テストシーケンサーとは
+テクストシーケンサーは測定器を簡単に制御するためのオープンソースソフトウェアです。
+ファイルに通信コマンドを記入し、各種通信インタフェースで送受信することができます。
 測定器との通信を確認するためのジグプログラムとして使う事を想定しています。最終的に校正証明書を素早く作成できるソフトウェアを目標にしています。
 
 # 特徴
@@ -51,7 +51,7 @@ Excel の初期の設定ではマクロを含むブックを開こうとする�
 ![<img src="docs/103j.png">](docs/103j.png)
 
 # 著作権表記
-Excel Commmand: An excel macro file to communicate some measurement insturuments.
+Test Sequencer: A macro file to communicate some measurement insturuments.
 
 Copyright (C) 2023 Takatoshi Yamaoka
 
