@@ -1,13 +1,13 @@
 [日本語](README.ja.md) | [English](README.md)
 
-# about Excel Command
-Excel Command is an open source software for easy control of measurment instruments. 
+# about Test Sequencer
+Test Sequencer is an open source software for easy control of measurment instruments. 
 Communication commands can be written in an Excel file and sent and received by various communication interfaces. 
 It is intended to be used as a jig program to check the communication with the measuring instrument. 
 The goal is for the software to be able to quickly generate calibration certificates.
 
 # Features
-- Works with Excel VBA (spreadsheet macro language) and commucation library. 
+- Works on Excel VBA and commucation library. 
 - Communicates with measuring instruments via GP-IB, RS232, USB, or Ethernet.
 - Controls and measures up to eithgt measurment instruments.
 - Japanese and English text can be switched.
@@ -52,7 +52,7 @@ By default Excel displays a security warning and disables macros when you try to
 ![<img src="docs/103e.png">](docs/103e.png)
 
 ## Copyright
-Excel Commmand: An excel macro file to communicate some measurement insturuments.
+Test Sequencer: An macro file to communicate some measurement insturuments.
 
 Copyright (C) 2023 Takatoshi Yamaoka
 
