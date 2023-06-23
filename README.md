@@ -15,7 +15,7 @@ The goal is for the software to be able to quickly generate calibration certific
   - When using GP-IB or USB, device drivers is needed.
 
 # Operating environment
-- OS：Windows 2000, XP, Vista, 7, 8, 10, 11
+- OS：Windows XP, Vista, 7, 8, 10, 11
 - Excel：2010, 2013, 2016, 2019, 2021
   - Office for Mac and Microsoft 365 are not supported.
 
