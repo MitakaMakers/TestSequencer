@@ -11,7 +11,7 @@ The goal is for the software to be able to quickly generate calibration certific
 - Communicates with measuring instruments via GP-IB, RS232, USB, or Ethernet.
 - Controls and measures up to eithgt measurment instruments.
 - Japanese and English text can be switched.
-- User do not need to install other software. User can use it immediately after download.
+- User do not need to install software. User can use it immediately after download.
   - When using GP-IB or USB, device drivers is needed.
 
 # Operating environment
