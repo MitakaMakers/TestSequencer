@@ -7,8 +7,10 @@ It is intended to be used as a jig program to check the communication with the m
 The goal is for the software to be able to quickly generate calibration certificates.
 
 # Features
-- Works with Excel VBA (spreadsheet macro language) and TMCTL.DLL. You can run the program right after downloading it.
-- Communicates with measuring instruments via GP-IB, RS232, USB, or LAN.
+- Works with Excel VBA (spreadsheet macro language) and commucation library(TMCTL.DLL). 
+  - User do not need to install other software. User can use it immediately after download.
+  - When using GP-IB or USB, device drivers is needed.
+- Communicates with measuring instruments via GP-IB, RS232, USB, or Ethernet.
 - Controls and measures up to eithgt measurment instruments.
 - Japanese and English text can be switched.
 
@@ -22,9 +24,9 @@ The goal is for the software to be able to quickly generate calibration certific
 
 # Communication interface
 - GP-IB: Environment in which National Instruments GP-IB interface works.
-  - Install [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html) separately.
+  - Please install [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html).
 - RS232C: Environment in which serial port or virtual COM port operates.
-- LAN: Socket communication, VXI-11, or HiSLIP must work.
+- Ethernet: Socket communication, VXI-11, or HiSLIP must work.
 - USB: Environment where National Instruments NI-VISA or Yokogawa Measurement USB driver works.
   - Please install [NI-VISA](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-visa.html) or [Yokogawa USB driver](https://tmi.yokogawa.com/jp/library/documents-downloads/software/usb-drivers/) separately.
 

@@ -6,10 +6,12 @@
 測定器との通信を確認するためのジグプログラムとして使う事を想定しています。最終的に校正証明書を素早く作成できるソフトウェアを目標にしています。
 
 # 特徴
-- Excel VBA（表計算マクロ言語）と TMCTL.DLL で動作します。インストール作業は不要です。ダウンロードしてすぐ動かすことができます
-- 測定器と GP-IB、RS232、USB、LAN で通信できます。
+- Excel VBA（表計算マクロ言語）と付属の通信ライブラリ (TMCTL.DLL) で動作します。
+  - インストール作業は不要です。ダウンロードしてすぐに使うことができます
+  - GP-IBまたはUSBを使う場合は各ベンダーのデバイスドライバをインストールする必要があります。
+- 測定器と GP-IB、RS232、USB、Ethernet で通信できます。
 - 最大8台の測定器の制御や計測ができます。
-- 日本語表記と英語表記を切り替えられます。
+- 日本語表記と英語表記に対応しています。
 
 # 動作環境
 - OS：Windows 2000, XP, Vista, 7, 8, 10, 11
@@ -23,7 +25,7 @@
 - GP-IB：ナショナルインスツルメンツ製 GP-IB インタフェースが動作する環境。
   - 別途 [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html) をインストールしてください。
 - RS232C：シリアルポート又は仮想COMポートが動作する環境。
-- LAN：ソケット通信、VXI-11 または HiSLIP が動作する環境。
+- Ethernet：ソケット通信、VXI-11 または HiSLIP が動作する環境。
 - USB：ナショナルインスツルメンツ製 NI-VISA または　横河計測製 USB ドライバが動作する環境。
   - 別途 [NI-VISA](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-visa.html) または[横河計測製 USB ドライバ](https://tmi.yokogawa.com/jp/library/documents-downloads/software/usb-drivers/)をインストールしてください。
 
