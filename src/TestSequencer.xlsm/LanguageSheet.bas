@@ -1,5 +1,5 @@
 Attribute VB_Name = "LanguageSheet"
-'   Excel Commmand: An excel macro file to communicate some measurement insturuments.
+'   Test Sequencer: A macro file to communicate measurement insturuments.
 '   Copyright 2023 Takatoshi Yamaoka
 '
 '   Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,7 +17,7 @@ Attribute VB_Name = "LanguageSheet"
 Option Explicit
 
 Sub ChangeLanguage(valueColumn As Long, lnLo As LanguageLayout)
-    Dim bkupSel As Range
+    Dim bkupSel   As Range
     Dim sheet     As Worksheet
     Dim i         As Long
     Dim sheetname As String

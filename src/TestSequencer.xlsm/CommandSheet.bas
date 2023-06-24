@@ -1,5 +1,5 @@
 Attribute VB_Name = "CommandSheet"
-'   Excel Commmand: An excel macro file to communicate some measurement insturuments.
+'   Test Sequencer: A macro file to communicate measurement insturuments.
 '   Copyright 2023 Takatoshi Yamaoka
 '
 '   Licensed under the Apache License, Version 2.0 (the "License");
