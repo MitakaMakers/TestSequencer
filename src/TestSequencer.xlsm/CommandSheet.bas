@@ -30,22 +30,25 @@ Sub SearchButton_Click(ByVal Target As Range)
     
     Set bkupSel = Selection
     cnLo = GetCnLayout()
-    If Target.column = cnLo.wireColumn Then
-        If cnLo.startRow <= Target.column And Target.column <= cnLo.endRow Then
-            AddDllDirectories (ThisWorkbook.Path)
-            ret = TmSearchDevices(7, devices, 128, num, "")
-            For i = 0 To num
-                Cells(row, cnLo.wireColumn).Select
-                value = Cells(row, cnLo.wireColumn).value
-                wire = GetWireType(value)
-                If wire = 7 Then
-                     If i < num Then
-                         Cells(row, cnLo.addressColumn).Select
-                         Cells(row, cnLo.addressColumn).value = devices.list(i).adr
-                         i = i + 1
-                     End If
+    
+    AddDllDirectories (ThisWorkbook.Path)
+    
+    If Target.row >= cnLo.startRow And Target.row <= cnLo.endRow Then
+        If Target.column = cnLo.wireColumn Then
+            wire = GetWireType(Target.value)
+            If wire = 7 Or wire = 10 Then
+                ret = TmSearchDevices(wire, devices, 8, num, "")
+                If 0 < num Then
+                    For i = 0 To num
+                        Cells(7 + i, cnLo.addressColumn).value = devices.list(i).adr
+                    Next i
+                    Range(Target.row, Target.column + 1).Validation.Add _
+                        Type:=xlValidateList, _
+                        AlertStyle:=xlValidAlertStop, _
+                        Formula1:="=$E$7:$E$15"
+                    Range(Target.row, Target.column + 1).value = devices.list(0).adr
                 End If
-            Next i
+            End If
         End If
     End If
     bkupSel.Select
@@ -159,6 +162,28 @@ Sub RunButton_Click()
             Cells(row, cmdLo.statusColumn).Select
             value = GetLocalTimeStr()
             Cells(row, cmdLo.statusColumn).value = value
+        ElseIf value = "IMAGE" Then
+            Cells(row, cmdLo.arg1Column).Select
+            value = CStr(Cells(row, cmdLo.arg1Column))
+            i = CInt(value) - 1
+            If 0 < i And Id(i) <> -1 Then
+                Cells(row, cmdLo.arg2Column).Select
+                value = Cells(row, cmdLo.arg2Column).value
+                cmd = CStr(value)
+                ret = TmSend(Id(i), cmd)
+                If InStr(cmd, "?") Then
+                    Cells(row, cmdLo.resultColumn).Select
+                    ret = TmReceiveBlockToFile(Id(i), "000.bmp", rlen)
+                    If ret = 0 Then
+                        ActiveSheet.Pictures.Insert("000.jpg").Select
+                        Selection.Top = Cells(row, cmdLo.resultColumn).Top
+                        Selection.Left = Cells(row, cmdLo.resultColumn).Left
+                    End If
+                End If
+                Cells(row, cmdLo.statusColumn).Select
+                value = GetLocalTimeStr()
+                Cells(row, cmdLo.statusColumn).value = value
+            End If
         End If
         Sleep (excOpt.interval)
     Next row
@@ -184,25 +209,29 @@ Function GetWireType(wire As Variant) As Long
     If IsEmpty(wire) Then
         GetWireType = 0
     Else
-        str = CStr(wire)
-        If str = "GP-IB" Then
-            GetWireType = 1
-        ElseIf str = "RS232C" Then
-            GetWireType = 2
-        ElseIf str = "USB" Then
-            GetWireType = 3
-        ElseIf str = "ETHERNET" Then
-            GetWireType = 4
-        ElseIf str = "USBTMC2" Then
-            GetWireType = 7
-        ElseIf str = "VXI-11" Then
-            GetWireType = 8
-        ElseIf str = "VISAUSB" Then
-            GetWireType = 10
-        ElseIf str = "Socket" Then
-            GetWireType = 11
-        ElseIf str = "HiSLIP" Then
-            GetWireType = 14
+        If TypeName(wire) = "String" Then
+            str = CStr(wire)
+            If str = "GP-IB" Then
+                GetWireType = 1
+            ElseIf str = "RS232C" Then
+                GetWireType = 2
+            ElseIf str = "USB" Then
+                GetWireType = 3
+            ElseIf str = "ETHERNET" Then
+                GetWireType = 4
+            ElseIf str = "USBTMC2" Then
+                GetWireType = 7
+            ElseIf str = "VXI-11" Then
+                GetWireType = 8
+            ElseIf str = "VISAUSB" Then
+                GetWireType = 10
+            ElseIf str = "Socket" Then
+                GetWireType = 11
+            ElseIf str = "HiSLIP" Then
+                GetWireType = 14
+            Else
+                GetWireType = 0
+            End If
         Else
             GetWireType = 0
         End If
@@ -215,15 +244,19 @@ Function GetTermType(eos As Variant) As Long
     If IsEmpty(eos) Then
         GetTermType = 0
     Else
-        str = CStr(eos)
-        If str = "CRLF" Then
-            GetTermType = 0
-        ElseIf str = "CR" Then
-            GetTermType = 1
-        ElseIf str = "LF" Then
-             GetTermType = 2
+        If TypeName(eos) = "String" Then
+            str = CStr(eos)
+            If str = "CRLF" Then
+                GetTermType = 0
+            ElseIf str = "CR" Then
+                GetTermType = 1
+            ElseIf str = "LF" Then
+                 GetTermType = 2
+            Else
+                GetTermType = 3
+            End If
         Else
-            GetTermType = 3
+            GetTermType = 0
         End If
     End If
 End Function

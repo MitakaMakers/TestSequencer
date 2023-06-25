@@ -21,7 +21,7 @@ Type DeviceList
 End Type
 
 Type DeviceListArray
-    list(MaxStationNum - 1) As DeviceList
+    list(MaxStationNum) As DeviceList
 End Type
 
 #If VBA7 And Win64 Then
@@ -72,10 +72,33 @@ Function TmReceive(ByVal Id As Long, ByRef buf As String, ByVal blen As Long, By
     TmReceive = TmReceiveBin(Id, ByVal buf, blen, rlen)
 End Function
 
-Function TmReceiveBlock(ByVal Id As Long, ByRef buf() As Integer, ByVal blen As Long, ByRef rlen As Long, ByRef ed As Long)
+Function TmReceiveBlock(ByVal Id As Long, ByRef buf() As Byte, ByVal blen As Long, ByRef rlen As Long, ByRef ed As Long)
     TmReceiveBlock = TmReceiveBlockData(Id, buf(0), blen, rlen, ed)
 End Function
 
 Function TmReceiveBlockB(ByVal Id As Long, ByRef buf() As Byte, ByVal blen As Long, ByRef rlen As Long, ByRef ed As Long)
     TmReceiveBlockB = TmReceiveBlockData(Id, buf(0), blen, rlen, ed)
+End Function
+
+Function TmReceiveBlockToFile(ByVal Id As Long, ByRef buf As String, ByRef rlen As Long)
+    Dim buffer() As Byte
+    Dim blen     As Long
+    Dim rlen2    As Long
+    Dim ed       As Long
+    Dim ret      As Long
+
+    Open buf For Binary Access Write As #1
+    lWritePos = 0
+    ret = TmReceiveBlockHeader(Id, rlen)
+    Do While ret = 0
+        ReDim buffer(65536)
+        ret = TmReceiveBlock(Id, buffer, UBound(buffer), rlen2, ed)
+        If rlen2 < UBound(buffer) Then
+            ReDim Preserve buffer(rlen2)
+        End If
+        Put #1, , buffer
+        rlen = rlen + UBound(buffer)
+        ret = TmCheckEnd(Id)
+    Loop
+    Close #1
 End Function
