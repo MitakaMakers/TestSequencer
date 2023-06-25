@@ -31,12 +31,13 @@ Sub SearchButton_Click(ByVal Target As Range)
     Set bkupSel = Selection
     cnLo = GetCnLayout()
     
-    AddDllDirectories (ThisWorkbook.Path)
     
     If Target.row >= cnLo.startRow And Target.row <= cnLo.endRow Then
         If Target.column = cnLo.wireColumn Then
             wire = GetWireType(Target.value)
             If wire = 7 Or wire = 10 Then
+                Application.EnableEvents = False
+                AddDllDirectories (ThisWorkbook.Path)
                 ret = TmSearchDevices(wire, devices, 8, num, "")
                 If 0 < num Then
                     For i = 0 To num
@@ -48,6 +49,7 @@ Sub SearchButton_Click(ByVal Target As Range)
                         Formula1:="=$E$7:$E$15"
                     Range(Target.row, Target.column + 1).value = devices.list(0).adr
                 End If
+                Application.EnableEvents = True
             End If
         End If
     End If
@@ -80,6 +82,7 @@ Sub RunButton_Click()
     cnLo = GetCnLayout()
     
     AddDllDirectories (ThisWorkbook.Path)
+    Application.EnableEvents = False
     
     ReDim Id(cnLo.endRow - cnLo.startRow + 1)
     For row = cnLo.startRow To cnLo.endRow
@@ -196,11 +199,12 @@ Sub RunButton_Click()
             Cells(row, cnLo.statusColumn).value = ""
         End If
     Next row
+    Application.EnableEvents = True
     bkupSel.Select
 End Sub
 
 Function Sleep(Second As Long)
-    Application.Wait [Now()] + (Second / (24 * 60 * 60))
+    Application.Wait [Now()] + (Second / (86400))
 End Function
 
 Function GetWireType(wire As Variant) As Long

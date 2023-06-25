@@ -26,8 +26,6 @@ Sub ChangeLanguage(valueColumn As Long, lnLo As LanguageLayout)
     Dim value     As String
     Dim cell      As Range
     
-    Set bkupSel = Selection
-    
     For Each sheet In Application.ThisWorkbook.Worksheets
         If sheet.name = lnLo.sheetname Then
             Exit For
@@ -39,6 +37,9 @@ Sub ChangeLanguage(valueColumn As Long, lnLo As LanguageLayout)
         Exit Sub
     End If
     
+    Set bkupSel = Selection
+    
+    Application.EnableEvents = False
     For i = 0 To lnLo.endRow - lnLo.startRow
         sheet.Cells(lnLo.startRow + i, lnLo.sheetColumn).Select
         sheetname = CStr(sheet.Cells(lnLo.startRow + i, lnLo.sheetColumn).value)
@@ -56,20 +57,19 @@ Sub ChangeLanguage(valueColumn As Long, lnLo As LanguageLayout)
             cell.value = value
         End If
     Next i
+    Application.EnableEvents = True
     
     bkupSel.Select
 End Sub
 
 Sub JapaneseButton_Click()
-    Dim lnLo    As LanguageLayout
-    
+    Dim lnLo As LanguageLayout
     lnLo = GetLangLayout()
     Call ChangeLanguage(lnLo.japaneseColumn, lnLo)
 End Sub
 
 Sub EnglishButton_Click()
-    Dim lnLo    As LanguageLayout
-    
+    Dim lnLo As LanguageLayout
     lnLo = GetLangLayout()
     Call ChangeLanguage(lnLo.englishColumn, lnLo)
 End Sub
