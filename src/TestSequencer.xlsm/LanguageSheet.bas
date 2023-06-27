@@ -73,3 +73,16 @@ Sub EnglishButton_Click()
     lnLo = GetLangLayout()
     Call ChangeLanguage(lnLo.englishColumn, lnLo)
 End Sub
+
+Sub SimplifiedChineseButton_Click()
+    Dim lnLo As LanguageLayout
+    lnLo = GetLangLayout()
+    Call ChangeLanguage(lnLo.chineseColumn, lnLo)
+End Sub
+
+Sub KoreanButton_Click()
+    Dim lnLo As LanguageLayout
+    lnLo = GetLangLayout()
+    Call ChangeLanguage(lnLo.koreanColumn, lnLo)
+End Sub
+

@@ -51,6 +51,8 @@ Type LanguageLayout
     columnColumn   As Long
     japaneseColumn As Long
     englishColumn  As Long
+    chineseColumn As Long
+    koreanColumn  As Long
 End Type
 
 Function GetExecOption() As ExecOption
@@ -67,7 +69,7 @@ Function GetExecOption() As ExecOption
         Exit Function
     End If
     
-    GetExecOption.timeout  = CLng(sheet.Range("D5").value)
+    GetExecOption.timeout = CLng(sheet.Range("D5").value)
     GetExecOption.interval = CLng(sheet.Range("D6").value)
 End Function
 
@@ -85,12 +87,12 @@ Function GetCnLayout() As ConnectLayout
         Exit Function
     End If
     
-    GetCnLayout.startRow      = CLng(sheet.Range("D10").value)
-    GetCnLayout.endRow        = CLng(sheet.Range("D11").value)
-    GetCnLayout.wireColumn    = CLng(sheet.Range("D12").value)
+    GetCnLayout.startRow = CLng(sheet.Range("D10").value)
+    GetCnLayout.endRow = CLng(sheet.Range("D11").value)
+    GetCnLayout.wireColumn = CLng(sheet.Range("D12").value)
     GetCnLayout.addressColumn = CLng(sheet.Range("D13").value)
-    GetCnLayout.termColumn    = CLng(sheet.Range("D14").value)
-    GetCnLayout.statusColumn  = CLng(sheet.Range("D15").value)
+    GetCnLayout.termColumn = CLng(sheet.Range("D14").value)
+    GetCnLayout.statusColumn = CLng(sheet.Range("D15").value)
 End Function
 
 Function GetCmdLayout() As CommandLayout
@@ -107,11 +109,11 @@ Function GetCmdLayout() As CommandLayout
         Exit Function
     End If
     
-    GetCmdLayout.startRow     = CLng(sheet.Range("D19").value)
-    GetCmdLayout.endRow       = CLng(sheet.Range("D20").value)
-    GetCmdLayout.opColumn     = CLng(sheet.Range("D21").value)
-    GetCmdLayout.arg1Column   = CLng(sheet.Range("D22").value)
-    GetCmdLayout.arg2Column   = CLng(sheet.Range("D23").value)
+    GetCmdLayout.startRow = CLng(sheet.Range("D19").value)
+    GetCmdLayout.endRow = CLng(sheet.Range("D20").value)
+    GetCmdLayout.opColumn = CLng(sheet.Range("D21").value)
+    GetCmdLayout.arg1Column = CLng(sheet.Range("D22").value)
+    GetCmdLayout.arg2Column = CLng(sheet.Range("D23").value)
     GetCmdLayout.resultColumn = CLng(sheet.Range("D24").value)
     GetCmdLayout.statusColumn = CLng(sheet.Range("D25").value)
 End Function
@@ -130,12 +132,14 @@ Function GetLangLayout() As LanguageLayout
         Exit Function
     End If
     
-    GetLangLayout.sheetname      = CStr(sheet.Range("D29").value)
-    GetLangLayout.startRow       = CLng(sheet.Range("D30").value)
-    GetLangLayout.endRow         = CLng(sheet.Range("D31").value)
-    GetLangLayout.sheetColumn    = CLng(sheet.Range("D32").value)
-    GetLangLayout.rowColumn      = CLng(sheet.Range("D33").value)
-    GetLangLayout.columnColumn   = CLng(sheet.Range("D34").value)
+    GetLangLayout.sheetname = CStr(sheet.Range("D29").value)
+    GetLangLayout.startRow = CLng(sheet.Range("D30").value)
+    GetLangLayout.endRow = CLng(sheet.Range("D31").value)
+    GetLangLayout.sheetColumn = CLng(sheet.Range("D32").value)
+    GetLangLayout.rowColumn = CLng(sheet.Range("D33").value)
+    GetLangLayout.columnColumn = CLng(sheet.Range("D34").value)
     GetLangLayout.japaneseColumn = CLng(sheet.Range("D35").value)
-    GetLangLayout.englishColumn  = CLng(sheet.Range("D36").value)
+    GetLangLayout.englishColumn = CLng(sheet.Range("D36").value)
+    GetLangLayout.chineseColumn = CLng(sheet.Range("D37").value)
+    GetLangLayout.koreanColumn = CLng(sheet.Range("D38").value)
 End Function
