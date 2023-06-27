@@ -176,9 +176,9 @@ Sub RunButton_Click()
                 ret = TmSend(Id(i), cmd)
                 If InStr(cmd, "?") Then
                     Cells(row, cmdLo.resultColumn).Select
-                    ret = TmReceiveBlockToFile(Id(i), "000.bmp", rlen)
+                    ret = TmReceiveImageToFile(Id(i), "temp.bmp", rlen)
                     If ret = 0 Then
-                        ActiveSheet.Pictures.Insert("000.jpg").Select
+                        ActiveSheet.Pictures.Insert("temp.bmp").Select
                         Selection.Top = Cells(row, cmdLo.resultColumn).Top
                         Selection.Left = Cells(row, cmdLo.resultColumn).Left
                     End If
