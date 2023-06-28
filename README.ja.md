@@ -4,7 +4,6 @@
 テクストシーケンサーは測定器を簡単に制御するためのオープンソースソフトウェアです。
 ファイルに通信コマンドを記入し、各種通信インタフェースで送受信することができます。
 測定器との通信を確認するためのジグプログラムとして使う事を想定しています。
-将来的に試験成績書を素早く作成できるソフトウェアを目指しています。
 
 # 特徴
 - Excel VBA（表計算マクロ言語）と通信ライブラリで動作します。
@@ -12,11 +11,14 @@
 - 最大8台の測定器の制御や計測ができます。
 - Excel の豊富な数式機能やグラフ表示を使う事ができます。
 - 日本語, 英語, 中国語、韓国語に対応しています。
+- サードパーティーソフトウェアは不要です。ダウンロードしてすぐに使う事ができます
 
 # 動作環境
-**太字** は動作確認済み環境です。その他の環境については動作報告をお願いします
-- OS：Windows XP, Vista, 7, 8, **10**, **11**
+**太字** は動作確認済み環境です。その他の環境は動作報告して頂けると助かります。
+- OS：Windows XP, Vista, 7, **10**, **11**
 - Excel：2010 2013, 2016, **2019**, 2021
+ - Office for Mac と Microsoft 365 の　Web　版、スマートフォン版は非対応です。
+
 - ※ 64 ビット版の Excel で動かす場合は [Visual Studio 2017 の Microsoft Visual C++ 再頒布可能パッケージ](https://forest.watch.impress.co.jp/library/software/software_11538/) をインストールしてください
 - ※ GP-IB 通信を使う場合, [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html) をインストールしてください。
 - ※ USB 通信を使う場合, [NI-VISA](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-visa.html) または[横河計測製 USB ドライバ](https://tmi.yokogawa.com/jp/library/documents-downloads/software/usb-drivers/)をインストールしてください。

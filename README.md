@@ -14,9 +14,13 @@ It is intended to be used as a jig program to check the communication with the m
   - If using GP-IB or USB, device drivers is needed.
 
 # Operating environment
+**Bolded** are tested environments. For other environments, I would appreciate a report.
 - OS：Windows XP, Vista, 7, **10**, **11**
 - Excel：2010, 2013, 2016, **2019**, 2021
   - Office for Mac and Microsoft 365 are not supported.
+- Note: if you want to run on 64-bit version of Excel.
+- Note: If you use GP-IB communication, install [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html).
+- Note: When using USB communication, install [NI-VISA](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-visa.html) or [Yokogawa USB driver](https://tmi. yokogawa.com/jp/library/documents-downloads/software/usb-drivers/).
 
 # Target devices
 - Measurment instruments compliant with IEEE488.2-1987
