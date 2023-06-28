@@ -98,6 +98,9 @@ Function TmReceiveImageToFile(ByVal Id As Long, ByRef buf As String, ByRef rlen 
         End If
         Put #1, , buffer
         rlen = rlen + UBound(buffer)
+        If ret = 1 Or ed = 1 Then
+            Exit Do
+        End If
         ret = TmCheckEnd(Id)
     Loop
     Close #1

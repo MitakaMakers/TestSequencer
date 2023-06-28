@@ -17,20 +17,20 @@ Attribute VB_Name = "CommandSheet"
 Option Explicit
 
 Sub SearchButton_Click(ByVal Target As Range)
-    Dim bkupSel As Range
-    Dim cnLo    As ConnectLayout
-    Dim ret     As Long
-    Dim Id      As Long
-    Dim row     As Long
-    Dim devices As DeviceListArray
-    Dim num     As Long
-    Dim i       As Long
-    Dim value   As Variant
-    Dim wire    As Long
+    Dim bkupSel    As Range
+    Dim cnLo       As ConnectLayout
+    Dim ret        As Long
+    Dim Id         As Long
+    Dim row        As Long
+    Dim devices    As DeviceListArray
+    Dim num        As Long
+    Dim i          As Long
+    Dim value      As Variant
+    Dim wire       As Long
+    Dim validation As validation
     
     Set bkupSel = Selection
     cnLo = GetCnLayout()
-    
     
     If Target.row >= cnLo.startRow And Target.row <= cnLo.endRow Then
         If Target.column = cnLo.wireColumn Then
@@ -43,7 +43,9 @@ Sub SearchButton_Click(ByVal Target As Range)
                     For i = 0 To num
                         Cells(7 + i, cnLo.addressColumn).value = devices.list(i).adr
                     Next i
-                    Range(Target.row, Target.column + 1).Validation.Add _
+                    Set validation = Range(Target.row, Target.column + 1).validation
+                    validation.Delete
+                    validation.Add _
                         Type:=xlValidateList, _
                         AlertStyle:=xlValidAlertStop, _
                         Formula1:="=$E$7:$E$15"
@@ -142,7 +144,7 @@ Sub RunButton_Click()
             Cells(row, cmdLo.arg1Column).Select
             value = CStr(Cells(row, cmdLo.arg1Column))
             i = CInt(value) - 1
-            If 0 < i And Id(i) <> -1 Then
+            If 0 <= i And Id(i) <> -1 Then
                 Cells(row, cmdLo.arg2Column).Select
                 value = Cells(row, cmdLo.arg2Column).value
                 cmd = CStr(value)
@@ -169,7 +171,7 @@ Sub RunButton_Click()
             Cells(row, cmdLo.arg1Column).Select
             value = CStr(Cells(row, cmdLo.arg1Column))
             i = CInt(value) - 1
-            If 0 < i And Id(i) <> -1 Then
+            If 0 <= i And Id(i) <> -1 Then
                 Cells(row, cmdLo.arg2Column).Select
                 value = Cells(row, cmdLo.arg2Column).value
                 cmd = CStr(value)
