@@ -16,9 +16,16 @@ Attribute VB_Name = "LoadLibrary"
 
 Option Explicit
 
+#If VBA7 And Win64 Then
 Declare PtrSafe Function LoadLibrary Lib "kernel32.dll" Alias "LoadLibraryA" (ByVal fileName As String) As Long
+Declare PtrSafe Function SetCurrentDirectory Lib "kernel32" Alias "SetCurrentDirectoryA" (ByVal CurrentDir As String) As Long
+#Else
+Declare Function LoadLibrary Lib "kernel32.dll" Alias "LoadLibraryA" (ByVal fileName As String) As Long
+Declare Function SetCurrentDirectory Lib "kernel32" Alias "SetCurrentDirectoryA" (ByVal CurrentDir As String) As Long
+#End If
 
 Sub AddDllDirectories(DLLFoldPath As String)
+    SetCurrentDirectory (DLLFoldPath)
 #If VBA7 And Win64 Then
     LoadLibrary (DLLFoldPath & "\YKMUSB64.dll")
     LoadLibrary (DLLFoldPath & "\tmctl64.dll")

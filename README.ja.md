@@ -3,31 +3,32 @@
 # テストシーケンサーとは
 テクストシーケンサーは測定器を簡単に制御するためのオープンソースソフトウェアです。
 ファイルに通信コマンドを記入し、各種通信インタフェースで送受信することができます。
-測定器との通信を確認するためのジグプログラムとして使う事を想定しています。最終的に校正証明書を素早く作成できるソフトウェアを目標にしています。
+測定器との通信を確認するためのジグプログラムとして使う事を想定しています。
+将来的に試験成績書を素早く作成できるソフトウェアを目指しています。
 
 # 特徴
 - Excel VBA（表計算マクロ言語）と通信ライブラリで動作します。
 - 測定器と GP-IB、RS232、USB、Ethernet で通信できます。
 - 最大8台の測定器の制御や計測ができます。
-- 日本語表記と英語表記に対応しています。
-- インストール作業は不要です。ダウンロードしてすぐに使うことができます
-  - GP-IBまたはUSBを使う場合は各ベンダーのデバイスドライバをインストールする必要があります。
+- Excel の豊富な数式機能やグラフ表示を使う事ができます。
+- 日本語, 英語, 中国語、韓国語に対応しています。
 
 # 動作環境
-- OS：Windows XP, Vista, 7, 8, 10, 11
-- Excel：2010, 2013, 2016, 2019, 2021
-  - Office for Mac や Microsoft 365 は非対応です。
-
-# 対象機器
-- IEEE488.2-1987 に対応する測定器
+**太字** は動作確認済み環境です。その他の環境については動作報告をお願いします
+- OS：Windows XP, Vista, 7, 8, **10**, **11**
+- Excel：2010 2013, 2016, **2019**, 2021
+- ※ 64 ビット版の Excel で動かす場合は [Visual Studio 2017 の Microsoft Visual C++ 再頒布可能パッケージ](https://forest.watch.impress.co.jp/library/software/software_11538/) をインストールしてください
+- ※ GP-IB 通信を使う場合, [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html) をインストールしてください。
+- ※ USB 通信を使う場合, [NI-VISA](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-visa.html) または[横河計測製 USB ドライバ](https://tmi.yokogawa.com/jp/library/documents-downloads/software/usb-drivers/)をインストールしてください。
 
 # 通信インタフェース
 - GP-IB：ナショナルインスツルメンツ製 GP-IB インタフェースが動作する環境。
-  - 別途 [NI-488.2](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-488-2.html) をインストールしてください。
 - RS232C：シリアルポート又は仮想COMポートが動作する環境。
 - Ethernet：ソケット通信、VXI-11 または HiSLIP が動作する環境。
 - USB：ナショナルインスツルメンツ製 NI-VISA または　横河計測製 USB ドライバが動作する環境。
-  - 別途 [NI-VISA](https://www.ni.com/ja-jp/support/downloads/drivers/download.ni-visa.html) または[横河計測製 USB ドライバ](https://tmi.yokogawa.com/jp/library/documents-downloads/software/usb-drivers/)をインストールしてください。
+
+# 対象機器
+- IEEE488.2-1987 に対応する測定器
 
 # 使い方
 ## ダウンロードと展開
@@ -40,6 +41,7 @@ Excel の初期の設定ではマクロを含むブックを開こうとする�
 - 左側の一覧から「セキュリティセンター」をクリックし、 「セキュリティセンターの設定」をクリック
 - 左側の一覧から「マクロの設定」をクリック
 - 「マクロの設定」の一覧から「VBAマクロを有効にする」をクリック
+
 
 ## アドレス文字列
 ![<img src="docs/101j.png">](docs/101j.png)

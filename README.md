@@ -3,20 +3,19 @@
 # about Test Sequencer
 Test Sequencer is an open source software for easy control of measurment instruments. 
 Communication commands can be written in an Excel file and sent and received by various communication interfaces. 
-It is intended to be used as a jig program to check the communication with the measuring instrument. 
-The goal is for the software to be able to quickly generate calibration certificates.
+It is intended to be used as a jig program to check the communication with the measurement instruments. 
 
 # Features
 - Works on Excel VBA and commucation library. 
-- Communicates with measuring instruments via GP-IB, RS232, USB, or Ethernet.
-- Controls and measures up to eithgt measurment instruments.
-- Japanese and English text can be switched.
-- User do not need to install software. User can use it immediately after download.
-  - When using GP-IB or USB, device drivers is needed.
+- Communicates with measurment instruments via GP-IB, RS232, USB, or Ethernet.
+- Controls up to eithgt measurment instruments.
+- Japanese, English, Chinese and Korean text can be switched.
+- You do not need to install third party software. You can use it immediately after download.
+  - If using GP-IB or USB, device drivers is needed.
 
 # Operating environment
-- OS：Windows XP, Vista, 7, 8, 10, 11
-- Excel：2010, 2013, 2016, 2019, 2021
+- OS：Windows XP, Vista, 7, **10**, **11**
+- Excel：2010, 2013, 2016, **2019**, 2021
   - Office for Mac and Microsoft 365 are not supported.
 
 # Target devices

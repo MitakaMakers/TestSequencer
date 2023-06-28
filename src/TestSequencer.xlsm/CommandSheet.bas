@@ -43,13 +43,13 @@ Sub SearchButton_Click(ByVal Target As Range)
                     For i = 0 To num
                         Cells(7 + i, cnLo.addressColumn).value = devices.list(i).adr
                     Next i
-                    Set validation = Range(Target.row, Target.column + 1).validation
+                    Set validation = Cells(Target.row, Target.column + 1).validation
                     validation.Delete
                     validation.Add _
                         Type:=xlValidateList, _
                         AlertStyle:=xlValidAlertStop, _
                         Formula1:="=$E$7:$E$15"
-                    Range(Target.row, Target.column + 1).value = devices.list(0).adr
+                    Cells(Target.row, Target.column + 1).value = devices.list(0).adr
                 End If
                 Application.EnableEvents = True
             End If
