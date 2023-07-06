@@ -1,6 +1,6 @@
 Attribute VB_Name = "CommandSheet"
 '   Test Sequencer: A macro file to communicate measurement insturuments.
-'   Copyright 2023 Takatoshi Yamaoka
+'   Copyright 2023 Takatoshi Yamaoka (mitaka.lab@gmail.com)
 '
 '   Licensed under the Apache License, Version 2.0 (the "License");
 '   you may not use this file except in compliance with the License.
@@ -178,7 +178,7 @@ Sub RunButton_Click()
                 ret = TmSend(Id(i), cmd)
                 If InStr(cmd, "?") Then
                     Cells(row, cmdLo.resultColumn).Select
-                    ret = TmReceiveImageToFile(Id(i), "temp.bmp", rlen)
+                    ret = TmReceiveToFile(Id(i), "temp.bmp", rlen)
                     If ret = 0 Then
                         ActiveSheet.Pictures.Insert("temp.bmp").Select
                         Selection.Top = Cells(row, cmdLo.resultColumn).Top

@@ -1,6 +1,6 @@
 Attribute VB_Name = "GetLocalTime"
 '   Test Sequencer: A macro file to communicate measurement insturuments.
-'   Copyright 2023 Takatoshi Yamaoka
+'   Copyright 2023 Takatoshi Yamaoka (mitaka.lab@gmail.com)
 '
 '   Licensed under the Apache License, Version 2.0 (the "License");
 '   you may not use this file except in compliance with the License.

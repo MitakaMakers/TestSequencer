@@ -8,7 +8,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
 '   Test Sequencer: A macro file to communicate measurement insturuments.
-'   Copyright 2023 Takatoshi Yamaoka
+'   Copyright 2023 Takatoshi Yamaoka (mitaka.lab@gmail.com)
 '
 '   Licensed under the Apache License, Version 2.0 (the "License");
 '   you may not use this file except in compliance with the License.

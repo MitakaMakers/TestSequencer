@@ -80,7 +80,7 @@ Function TmReceiveBlockB(ByVal Id As Long, ByRef buf() As Byte, ByVal blen As Lo
     TmReceiveBlockB = TmReceiveBlockData(Id, buf(0), blen, rlen, ed)
 End Function
 
-Function TmReceiveImageToFile(ByVal Id As Long, ByRef buf As String, ByRef rlen As Long)
+Function TmReceiveToFile(ByVal Id As Long, ByRef buf As String, ByRef rlen As Long)
     Dim buffer() As Byte
     Dim blen     As Long
     Dim rlen2    As Long
