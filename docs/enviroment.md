@@ -70,6 +70,34 @@
 |Visual Studio 2012|2012年10月31日|2018年1月9日|2023年1月10日||
 |Visual Studio 2010|2010年6月29日|2015年7月14日|2020年7月14日||
 |Visual Studio 2008|2008年2月19日|2013年4月9日|2018年4月10日||
-|Visual Studio 2005|2006年1月27日|2011年4月12日|2016年4月12日|Unicode 対応した最初のバージョン|
-|Visual Studio 2003|2003年7月10日|2008年10月14日|2013年10月8日||
-|Visual Studio 2002|2002年4月15日|2007年7月10日|2009年7月14日||
+|Visual Studio 2005|2006年1月27日|2011年4月12日|2016年4月12日|Unicode 対応 した最初のバージョン|
+|Visual Studio 2003|2003年7月10日|2008年10月14日|2013年10月8日|Java 訴訟の和解条件により配布終了|
+|Visual Studio 2002|2002年4月15日|2007年7月10日|2009年7月14日|Java 訴訟の和解条件により配布終了|
+|Visual Basic 6.0|1998年9月5日|2005年3月31日|2008年4月8日||
+|Visual C++ 6.0|1998年9月25日|2004年9月30日|2005年9月30日||
+
+## C++, VB 開発環境が対応する OS のバージョン表
+||Win11|Win10|Win8|Win7|Vista|XP|2000|98|
+|---|---|---|---|---|---|---|---|---|
+|Visual C++ 2022 再頒布パッケージ|Yes|Yes|Yes|Yes|Yes|-|-|-|
+|Visual C++ 2019 再頒布パッケージ|Yes|Yes|Yes|Yes|Yes|(Yes)|-|-|
+|Visual C++ 2017 再頒布パッケージ|Yes|Yes|Yes|Yes|Yes|Yes|-|-|
+|Visual C++ 2015 再頒布パッケージ|(Yes)|Yes|Yes|Yes|Yes|Yes|-|-|
+|Visual C++ 2013 再頒布パッケージ|-|-|Yes|Yes|Yes|Yes|-|-|
+|Visual C++ 2012 再頒布パッケージ|-|-|Yes|Yes|Yes|Yes|-|-|
+|Visual C++ 2010 再頒布パッケージ|-|-|-|Yes|Yes|Yes|-|-|
+|Visual C++ 2008 再頒布パッケージ|-|-|-|Yes|Yes|Yes|-|-|
+|Visual C++ 2005 再頒布パッケージ|-|-|-|Yes|Yes|Yes|-|-|
+|Visual Basic 6.0ランタイム|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Visual Studio 2022 開発環境|Yes|Yes|-|-|-|-|-|-|
+|Visual Studio 2019 開発環境|Yes|Yes|Yes|Yes|-|-|-|-|
+|Visual Studio 2017 開発環境|-|Yes|Yes|Yes|-|-|-|-|
+|Visual Studio 2015 開発環境|-|Yes|Yes|Yes|-|-|-|-|
+|Visual Studio 2013 開発環境|-|-|Yes|Yes|-|-|-|-|
+|Visual Studio 2012 開発環境|-|-|Yes|Yes|-|-|-|-|
+|Visual Studio 2010 開発環境|-|-|(Yes)|Yes|Yes|Yes|-|-|
+|Visual Studio 2008 開発環境|-|-|(Yes)|(Yes)|(Yes)|Yes|Yes|-|
+|Visual Studio 2005 開発環境|-|-|-|(Yes)|(Yes)|Yes|Yes|-|
+|Visual Studio 2003 開発環境|-|-|-|-|-|Yes|Yes|-|
+|Visual Studio 2002 開発環境|-|-|-|-|-|Yes|Yes|-|
+|Visual Basic 6.0 開発環境|-|-|-|-|-|(Yes)|(Yes)|Yes|
